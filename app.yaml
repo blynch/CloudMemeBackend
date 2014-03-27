@@ -1,0 +1,21 @@
+application: cloudmemebackend
+version: demo-1
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+# Endpoints handler
+- url: /_ah/spi/.*
+  script: cloudmeme_api.APPLICATION
+
+- url: /create
+  script: cloudmeme_web.app
+
+libraries:
+- name: pycrypto
+  version: latest
+- name: endpoints
+  version: 1.0
+- name: PIL
+  version: 1.1.7
